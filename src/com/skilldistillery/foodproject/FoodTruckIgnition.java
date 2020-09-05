@@ -21,9 +21,9 @@ public class FoodTruckIgnition {
 		foodTruckArray = makeTruckArray(truckMax);
 		// Fill data of the default Food Trucks
 		foodTruckArray = makeFoodTrucks(foodTruckArray, truckMax);
-		//Pass foodTruck Array to menu to be further passed to other methods.
+		// Pass foodTruck Array to menu to be further passed to other methods.
 		menu(foodTruckArray);
-		
+
 		input.close();
 	}
 
@@ -52,7 +52,7 @@ public class FoodTruckIgnition {
 			System.out.print("Truck No. " + (i + 1) + " Food Type(s): ");
 			tempArray[i].setFoodType(input.nextLine());
 			System.out.print("Truck No. " + (i + 1) + " Rating [1 (worst) - 5 (best)]: ");
-			//TODO SET PARAMETERS SO NUMBER MUST BE 1-5
+			// TODO SET PARAMETERS SO NUMBER MUST BE 1-5
 			tempArray[i].setTruckRating(input.nextInt());
 			input.nextLine();
 		}
@@ -71,23 +71,32 @@ public class FoodTruckIgnition {
 
 			switch (userChoice) {
 
-			case "1": case "one": case "list":
+			case "1":
+			case "one":
+			case "list":
 				listTrucks(truckArray);
 				break;
 
-			case "2": case "two": case "average":
+			case "2":
+			case "two":
+			case "average":
 				truckAverage(truckArray);
 				break;
-			
-			case "3": case "three": case "best":
-				System.out.println("\nPlacemarker for 3");
+
+			case "3":
+			case "three":
+			case "best":
+				highestTruck(truckArray);
 				break;
-			
-			case "4": case "four": case "quit":	case "exit":
+
+			case "4":
+			case "four":
+			case "quit":
+			case "exit":
 				System.out.println("\nGoodbye! Happy Eating!");
 				keepGoing = false;
 				break;
-			
+
 			default:
 				System.out.println("\nPlease choose 1 - 4");
 
@@ -113,17 +122,17 @@ public class FoodTruckIgnition {
 
 	public void listTrucks(FoodTruck[] truckArray) {
 		System.out.println("");
-		
+
 		int numberOfTrucks = 0;
-		
+
 		for (FoodTruck foodTruck : truckArray) {
 			if ((foodTruck.getTruckName() == null) || ((foodTruck.getTruckName().equals("quit")))) {
 				continue;
 			} else {
 				numberOfTrucks++;
-			}	
-		}	
-		
+			}
+		}
+
 		if (numberOfTrucks == 0) {
 			System.out.println("No Trucks in Database!");
 		} else {
@@ -131,46 +140,59 @@ public class FoodTruckIgnition {
 				if ((foodTruck.getTruckName() == null) || ((foodTruck.getTruckName().equals("quit")))) {
 					continue;
 				} else {
-				System.out.println(foodTruck);
-				}	
+					System.out.println(foodTruck);
+				}
 			}
 		}
 	}
-	
+
 	public void truckAverage(FoodTruck[] truckArray) {
-		
+
 		int ratingTotal = 0;
 		int numberOfTrucks = 0;
 		double truckAverage = 0;
-		
+
 		for (FoodTruck foodTruck : truckArray) {
 			if ((foodTruck.getTruckName() == null) || ((foodTruck.getTruckName().equals("quit")))) {
 				continue;
 			} else {
 				numberOfTrucks++;
-			}	
-		}	
-		
+			}
+		}
+
 		for (int i = 0; i < truckArray.length; i++) {
 			if ((truckArray[i].getTruckName() == null) || ((truckArray[i].getTruckName().equals("quit")))) {
 				continue;
 			} else {
 				ratingTotal += truckArray[i].getTruckRating();
-			}	
+			}
 		}
-		
+
 		if (numberOfTrucks == 0) {
 			System.out.println("\nNo Trucks in Database!");
 		} else {
-		truckAverage = ratingTotal / numberOfTrucks;	
-		System.out.println("\nThe average rating of the food trucks is: " + truckAverage);
+			truckAverage = ratingTotal / numberOfTrucks;
+			System.out.println("\nThe average rating of the food trucks is: " + truckAverage);
 		}
-		
+
 	}
-	
-	
-	
-	
-	
-	
+
+	public void highestTruck(FoodTruck[] truckArray) {
+
+		int highestNumber = 0;
+		String highestRated = null;
+		for (FoodTruck foodTruck : truckArray) {
+			if (foodTruck.getTruckRating() > highestNumber) {
+				highestNumber = foodTruck.getTruckRating();
+				highestRated = foodTruck.getTruckName();
+			}
+		}
+
+		if (highestNumber == 0) {
+			System.out.println("\nNo Trucks in Database!");
+		} else {
+			System.out.println("\nThe highest rated food truck is: " + highestRated);
+		}
+	}
+
 }
