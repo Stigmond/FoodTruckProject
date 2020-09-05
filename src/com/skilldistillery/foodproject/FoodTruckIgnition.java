@@ -71,28 +71,19 @@ public class FoodTruckIgnition {
 
 			switch (userChoice) {
 
-			case "1":
-			case "one":
-			case "list":
+			case "1": case "one": case "list":
 				listTrucks(truckArray);
 				break;
 
-			case "2":
-			case "two":
-			case "average":
+			case "2": case "two": case "average":
 				truckAverage(truckArray);
 				break;
 
-			case "3":
-			case "three":
-			case "best":
+			case "3": case "three": case "best":
 				highestTruck(truckArray);
 				break;
 
-			case "4":
-			case "four":
-			case "quit":
-			case "exit":
+			case "4": case "four": case "quit":	case "exit":
 				System.out.println("\nGoodbye! Happy Eating!");
 				keepGoing = false;
 				break;
@@ -171,7 +162,7 @@ public class FoodTruckIgnition {
 		if (numberOfTrucks == 0) {
 			System.out.println("\nNo Trucks in Database!");
 		} else {
-			truckAverage = ratingTotal / numberOfTrucks;
+			truckAverage = ((double)ratingTotal / numberOfTrucks);
 			System.out.println("\nThe average rating of the food trucks is: " + truckAverage);
 		}
 
@@ -191,7 +182,7 @@ public class FoodTruckIgnition {
 		if (highestNumber == 0) {
 			System.out.println("\nNo Trucks in Database!");
 		} else {
-			System.out.println("\nThe highest rated food truck is: " + highestRated);
+			System.out.println("\nHighest rated -- " + highestRated);
 		}
 	}
 
