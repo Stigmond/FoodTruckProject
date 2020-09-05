@@ -27,10 +27,10 @@ public class FoodTruck {
 	public String toString() {
 		StringBuilder truckinfo = new StringBuilder();
 		
-		truckinfo.append("Truck ID#: ")
+		truckinfo.append("Truck Name: ")
+			     .append(this.truckName)
+	             .append(", Truck ID#: ")
 				 .append(this.truckId)
-				 .append(", Truck Name: ")
-				 .append(this.truckName)
 				 .append(", Food Type: ")
 				 .append(this.foodType)
 				 .append(", Truck Rating: ")

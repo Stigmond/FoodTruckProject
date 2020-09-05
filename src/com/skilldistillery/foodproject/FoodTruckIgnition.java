@@ -140,7 +140,7 @@ public class FoodTruckIgnition {
 				if ((foodTruck.getTruckName() == null) || ((foodTruck.getTruckName().equals("quit")))) {
 					continue;
 				} else {
-					System.out.println(foodTruck);
+					System.out.println(foodTruck.toString());
 				}
 			}
 		}
@@ -184,7 +184,7 @@ public class FoodTruckIgnition {
 		for (FoodTruck foodTruck : truckArray) {
 			if (foodTruck.getTruckRating() > highestNumber) {
 				highestNumber = foodTruck.getTruckRating();
-				highestRated = foodTruck.getTruckName();
+				highestRated = foodTruck.toString();
 			}
 		}
 
