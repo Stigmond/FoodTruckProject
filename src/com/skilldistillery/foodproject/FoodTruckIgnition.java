@@ -21,8 +21,9 @@ public class FoodTruckIgnition {
 		foodTruckArray = makeTruckArray(truckMax);
 		// Fill data of the default Food Trucks
 		foodTruckArray = makeFoodTrucks(foodTruckArray, truckMax);
-
-		menu();
+		//Pass foodTruck Array to menu to be further passed to other methods.
+		menu(foodTruckArray);
+		
 		input.close();
 	}
 
@@ -50,7 +51,7 @@ public class FoodTruckIgnition {
 			}
 			System.out.print("Truck No. " + (i + 1) + " Food Type(s): ");
 			tempArray[i].setFoodType(input.nextLine());
-			System.out.print("Truck No. " + (i + 1) + " Rating (1 - 10): ");
+			System.out.print("Truck No. " + (i + 1) + " Rating [1 (worst) - 5 (best)]: ");
 			tempArray[i].setTruckRating(input.nextInt());
 			input.nextLine();
 		}
@@ -59,7 +60,7 @@ public class FoodTruckIgnition {
 
 	}
 
-	public void menu() {
+	public void menu(FoodTruck[] truckArray) {
 
 		boolean keepGoing = true;
 		do {
@@ -69,26 +70,23 @@ public class FoodTruckIgnition {
 
 			switch (userChoice) {
 
-			case "1":
-			case "one":
-				System.out.println("\nPlacemarker for 1");
+			case "1": case "one": case "list":
+				listTrucks(truckArray);
 				break;
 
-			case "2":
-			case "two":
-				System.out.println("\nPlacemarker for 2");
+			case "2": case "two": case "average":
+				truckAverage(truckArray);
 				break;
-			case "3":
-			case "three":
+			
+			case "3": case "three": case "best":
 				System.out.println("\nPlacemarker for 3");
 				break;
-			case "4":
-			case "four":
-			case "quit":
-			case "exit":
+			
+			case "4": case "four": case "quit":	case "exit":
 				System.out.println("\nGoodbye! Happy Eating!");
 				keepGoing = false;
 				break;
+			
 			default:
 				System.out.println("\nPlease choose 1 - 4");
 
@@ -112,4 +110,27 @@ public class FoodTruckIgnition {
 		System.out.println("*************************************");
 	}
 
+	public void listTrucks(FoodTruck[] truckArray) {
+		System.out.println("");
+		for (FoodTruck foodTruck : truckArray) {
+			if ((foodTruck.getTruckName() == null) || ((foodTruck.getTruckName().equals("quit")))) {
+				continue;
+			} else {
+				System.out.println(foodTruck);
+			}	
+		}
+	}
+	
+	public void truckAverage(FoodTruck[] truckArray) {
+		double truckAverage = 0;
+		for (int i = 0; i < truckArray.length; i++) {
+			
+		}
+	}
+	
+	
+	
+	
+	
+	
 }
