@@ -27,7 +27,7 @@ public class FoodTruck {
 	public String toString() {
 		StringBuilder truckinfo = new StringBuilder();
 		
-		truckinfo.append("Truck ID: ")
+		truckinfo.append("Truck ID#: ")
 				 .append(this.truckId)
 				 .append(", Truck Name: ")
 				 .append(this.truckName)

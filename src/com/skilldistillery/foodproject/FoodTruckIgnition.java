@@ -52,6 +52,7 @@ public class FoodTruckIgnition {
 			System.out.print("Truck No. " + (i + 1) + " Food Type(s): ");
 			tempArray[i].setFoodType(input.nextLine());
 			System.out.print("Truck No. " + (i + 1) + " Rating [1 (worst) - 5 (best)]: ");
+			//TODO SET PARAMETERS SO NUMBER MUST BE 1-5
 			tempArray[i].setTruckRating(input.nextInt());
 			input.nextLine();
 		}
@@ -122,9 +123,29 @@ public class FoodTruckIgnition {
 	}
 	
 	public void truckAverage(FoodTruck[] truckArray) {
+		int ratingTotal = 0;
+		int numberOfTrucks = 0;
 		double truckAverage = 0;
+		for (FoodTruck foodTruck : truckArray) {
+			if ((foodTruck.getTruckName() == null) || ((foodTruck.getTruckName().equals("quit")))) {
+				continue;
+			} else {
+				numberOfTrucks++;
+			}	
+		}	
+		
 		for (int i = 0; i < truckArray.length; i++) {
-			
+			if ((truckArray[i].getTruckName() == null) || ((truckArray[i].getTruckName().equals("quit")))) {
+				continue;
+			} else {
+				ratingTotal += truckArray[i].getTruckRating();
+			}	
+		}
+		if (numberOfTrucks == 0) {
+			System.out.println("\nNo Trucks in Database!");
+		} else {
+		truckAverage = ratingTotal / numberOfTrucks;	
+		System.out.println("\nThe average rating of the food trucks is: " + truckAverage);
 		}
 	}
 	
