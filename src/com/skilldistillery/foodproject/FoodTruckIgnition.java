@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class FoodTruckIgnition {
 
+	Scanner input = new Scanner(System.in);
+
 	public static void main(String[] args) {
 
 		FoodTruckIgnition ft1 = new FoodTruckIgnition();
@@ -14,22 +16,17 @@ public class FoodTruckIgnition {
 	public void go() {
 
 		int truckMax = 5;
-		// Make Array with default Food Trucks;
+		// Declare and instantiate an Array of default Food Trucks;
 		FoodTruck[] foodTruckArray = new FoodTruck[truckMax];
-		foodTruckArray = makeArray(truckMax);
+		foodTruckArray = makeTruckArray(truckMax);
 		// Fill data of the default Food Trucks
 		foodTruckArray = makeFoodTrucks(foodTruckArray, truckMax);
 
-		// 	Test code to make sure the array has been filled according to instructions.
-				System.out.println(foodTruckArray[0].toString());
-				System.out.println(foodTruckArray[1].toString());
-				System.out.println(foodTruckArray[2].toString());
-				System.out.println(foodTruckArray[3].toString());
-				System.out.println(foodTruckArray[4].toString());
+		menu();
+		input.close();
 	}
 
-	
-	public FoodTruck[] makeArray(int truckMax) {
+	public FoodTruck[] makeTruckArray(int truckMax) {
 		FoodTruck[] returnArray = new FoodTruck[truckMax];
 		for (int i = 0; i < truckMax; i++) {
 			FoodTruck emptyTruck = new FoodTruck();
@@ -38,14 +35,11 @@ public class FoodTruckIgnition {
 		return returnArray;
 	}
 
-	
 	public FoodTruck[] makeFoodTrucks(FoodTruck[] tempArray, int truckMax) {
-
-		Scanner input = new Scanner(System.in);
 
 		FoodTruck[] returnArray = tempArray;
 
-		System.out.println("Please enter food truck info:");
+		System.out.println("Welcome to Quick Byte!  Please enter Food Truck info:\n");
 
 		for (int i = 0; i < truckMax; i++) {
 
@@ -56,16 +50,66 @@ public class FoodTruckIgnition {
 			}
 			System.out.print("Truck No. " + (i + 1) + " Food Type(s): ");
 			tempArray[i].setFoodType(input.nextLine());
-			System.out.print("Truck No. " + (i + 1) + " Rating: ");
+			System.out.print("Truck No. " + (i + 1) + " Rating (1 - 10): ");
 			tempArray[i].setTruckRating(input.nextInt());
 			input.nextLine();
 		}
 
-		input.close();
 		return returnArray;
-	
-	}
-	
-	
-}
 
+	}
+
+	public void menu() {
+
+		boolean keepGoing = true;
+		do {
+			printmenu();
+			System.out.print("\nPlease enter a selection: ");
+			String userChoice = input.nextLine();
+
+			switch (userChoice) {
+
+			case "1":
+			case "one":
+				System.out.println("\nPlacemarker for 1");
+				break;
+
+			case "2":
+			case "two":
+				System.out.println("\nPlacemarker for 2");
+				break;
+			case "3":
+			case "three":
+				System.out.println("\nPlacemarker for 3");
+				break;
+			case "4":
+			case "four":
+			case "quit":
+			case "exit":
+				System.out.println("\nGoodbye! Happy Eating!");
+				keepGoing = false;
+				break;
+			default:
+				System.out.println("\nPlease choose 1 - 4");
+
+			}
+
+		} while (keepGoing);
+	}
+
+	public void printmenu() {
+
+		System.out.println("");
+		System.out.println("*************|QUICK    |*************");
+		System.out.println("*************|     BYTE|*************");
+		System.out.println("**                                 **");
+		System.out.println("**  1. List all Trucks             **");
+		System.out.println("**  2. See Average Ratings         **");
+		System.out.println("**  3. Display Highest-Rated Truck **");
+		System.out.println("**  4. Quit                        **");
+		System.out.println("**                                 **");
+		System.out.println("*************************************");
+		System.out.println("*************************************");
+	}
+
+}
