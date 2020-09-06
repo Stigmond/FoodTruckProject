@@ -12,7 +12,7 @@ This is a Java Program which has user create a Food Truck database, and allows u
 
 ### How to Run
 
-  1.  Compile and/or run FoodTruckProject.java in a compatible IDE or Java Runtime Environment of your choice.
+  1.  Compile and/or run FoodTruckProject in a compatible IDE or Java Runtime Environment of your choice.
   2.  Enter relative Food Truck data as prompted by the program.  User has the ability to enter data for up to five (5) Food Trucks.  Should user choose to enter data  for less than five Food Trucks, user may type 'quit' at the name prompt.  This will stop data entry and send user to the main menu.
   3.  Select one of four (4) options on the main menu:
     - Option One allows user to see Food Truck data as entered by user.  NOTE: Food Truck data will contain a unique ID Number automatically assigned by the program.
