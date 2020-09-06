@@ -16,13 +16,18 @@ public class FoodTruckIgnition {
 	public void go() {
 
 		int truckMax = 5;
+		
 		// Declare and instantiate an Array of default Food Trucks;
 		FoodTruck[] foodTruckArray = new FoodTruck[truckMax];
 		foodTruckArray = makeTruckArray(truckMax);
+		
 		// Fill data of the default Food Trucks
 		foodTruckArray = makeFoodTrucks(foodTruckArray, truckMax);
-		// Pass foodTruck Array to menu to be further passed to other methods.
+		
+		// Determine number of valid food trucks in array so a null array won't be displayed.
 		int numberOfTrucks = countTrucks(foodTruckArray);
+		
+		// Pass foodTruck Array to menu to be further passed to other methods.
 		menu(foodTruckArray, numberOfTrucks);
 
 		input.close();
@@ -52,9 +57,12 @@ public class FoodTruckIgnition {
 			}
 			System.out.print("Truck No. " + (i + 1) + " Food Type(s): ");
 			tempArray[i].setFoodType(input.nextLine());
-			System.out.print("Truck No. " + (i + 1) + " Rating: ");
-			tempArray[i].setTruckRating(input.nextDouble());
-			input.nextLine();
+			do {
+				System.out.print("Truck No. " + (i + 1) + " Rating [1 (lowest) - 5 (highest): ");
+				tempArray[i].setTruckRating(input.nextDouble());
+				input.nextLine();
+			} while (tempArray[i].getTruckRating() < 1 || tempArray[i].getTruckRating() > 5);
+			
 		}
 
 		return returnArray;
@@ -85,28 +93,19 @@ public class FoodTruckIgnition {
 
 			switch (userChoice) {
 
-			case "1":
-			case "one":
-			case "list":
+			case "1": case "one": case "list":
 				listTrucks(truckArray, numberOfTrucks);
 				break;
 
-			case "2":
-			case "two":
-			case "average":
+			case "2": case "two": case "average":
 				truckAverage(truckArray, numberOfTrucks);
 				break;
 
-			case "3":
-			case "three":
-			case "best":
+			case "3": case "three": case "best":
 				highestTruck(truckArray, numberOfTrucks);
 				break;
 
-			case "4":
-			case "four":
-			case "quit":
-			case "exit":
+			case "4": case "four": case "quit": case "exit":
 				System.out.println("\nGoodbye! Happy Eating!");
 				keepGoing = false;
 				break;
