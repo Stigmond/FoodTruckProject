@@ -2,7 +2,7 @@
 
 ### Overview
 
-This is a Java Program which has user create a Food Truck database, and allows user to perform the following:
+This is a Java Program which has a user create a Food Truck database, and allows user to perform the following:
 
 * Review itemized Food Truck data, including Name, ID Number, Food Served, and Rating;
 
