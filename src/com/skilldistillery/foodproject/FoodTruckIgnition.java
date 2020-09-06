@@ -41,7 +41,7 @@ public class FoodTruckIgnition {
 
 		FoodTruck[] returnArray = tempArray;
 
-		System.out.println("Welcome to Quick Byte!  Please enter Food Truck info:\n");
+		System.out.println("Welcome to Quick Byte! Please enter Food Truck info:\n");
 
 		for (int i = 0; i < truckMax; i++) {
 
@@ -52,8 +52,7 @@ public class FoodTruckIgnition {
 			}
 			System.out.print("Truck No. " + (i + 1) + " Food Type(s): ");
 			tempArray[i].setFoodType(input.nextLine());
-			System.out.print("Truck No. " + (i + 1) + " Rating [1 (worst) - 5 (best)]: ");
-			// TODO SET PARAMETERS SO NUMBER MUST BE 1-5
+			System.out.print("Truck No. " + (i + 1) + " Rating: ");
 			tempArray[i].setTruckRating(input.nextInt());
 			input.nextLine();
 		}
@@ -175,7 +174,7 @@ public class FoodTruckIgnition {
 
 	public void highestTruck(FoodTruck[] truckArray, int numberOfTrucks) {
 
-		int highestNumber = 0;
+		int highestNumber = -1;
 		String highestRated = null;
 		if (numberOfTrucks == 0) {
 			System.out.println("\nNo Trucks in Database!");
