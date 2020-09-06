@@ -19,7 +19,7 @@ public class FoodTruckIgnition {
 		
 		// Declare and instantiate an Array of default Food Trucks;
 		FoodTruck[] foodTruckArray = new FoodTruck[truckMax];
-		foodTruckArray = makeTruckArray(truckMax);
+		foodTruckArray = makeTruckArray(foodTruckArray, truckMax);
 		
 		// Fill data of the default Food Trucks
 		foodTruckArray = makeFoodTrucks(foodTruckArray, truckMax);
@@ -33,38 +33,36 @@ public class FoodTruckIgnition {
 		input.close();
 	}
 
-	public FoodTruck[] makeTruckArray(int truckMax) {
-		FoodTruck[] returnArray = new FoodTruck[truckMax];
+	public FoodTruck[] makeTruckArray(FoodTruck[] foodTruckArray, int truckMax) {
+
 		for (int i = 0; i < truckMax; i++) {
-			returnArray[i] = new FoodTruck();
+			foodTruckArray[i] = new FoodTruck();
 		}
-		return returnArray;
+		return foodTruckArray;
 	}
 
-	public FoodTruck[] makeFoodTrucks(FoodTruck[] tempArray, int truckMax) {
-
-		FoodTruck[] returnArray = tempArray;
+	public FoodTruck[] makeFoodTrucks(FoodTruck[] foodTruckArray, int truckMax) {
 
 		System.out.println("Welcome to Quick Byte! \n\nPlease enter Food Truck info:\n");
 
 		for (int i = 0; i < truckMax; i++) {
 
 			System.out.print("Truck No. " + (i + 1) + " Name (or type 'quit' if finished): ");
-			tempArray[i].setTruckName(input.nextLine());
-			if (tempArray[i].getTruckName().equals("quit")) {
+			foodTruckArray[i].setTruckName(input.nextLine());
+			if (foodTruckArray[i].getTruckName().equals("quit")) {
 				break;
 			}
 			System.out.print("Truck No. " + (i + 1) + " Food Type(s): ");
-			tempArray[i].setFoodType(input.nextLine());
+			foodTruckArray[i].setFoodType(input.nextLine());
 			do {
 				System.out.print("Truck No. " + (i + 1) + " Rating [1 (lowest) - 5 (highest): ");
-				tempArray[i].setTruckRating(input.nextDouble());
+				foodTruckArray[i].setTruckRating(input.nextDouble());
 				input.nextLine();
-			} while (tempArray[i].getTruckRating() < 1 || tempArray[i].getTruckRating() > 5);
+			} while (foodTruckArray[i].getTruckRating() < 1 || foodTruckArray[i].getTruckRating() > 5);
 			
 		}
 
-		return returnArray;
+		return foodTruckArray;
 
 	}
 
