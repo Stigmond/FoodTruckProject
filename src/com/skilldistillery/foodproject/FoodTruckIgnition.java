@@ -36,8 +36,7 @@ public class FoodTruckIgnition {
 	public FoodTruck[] makeTruckArray(int truckMax) {
 		FoodTruck[] returnArray = new FoodTruck[truckMax];
 		for (int i = 0; i < truckMax; i++) {
-			FoodTruck emptyTruck = new FoodTruck();
-			returnArray[i] = emptyTruck;
+			returnArray[i] = new FoodTruck();
 		}
 		return returnArray;
 	}
