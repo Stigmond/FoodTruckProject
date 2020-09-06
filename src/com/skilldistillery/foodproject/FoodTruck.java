@@ -34,7 +34,8 @@ public class FoodTruck {
 				 .append(", Food Type: ")
 				 .append(this.foodType)
 				 .append(", Truck Rating: ")
-				 .append(this.truckRating);
+				 .append(this.truckRating)
+				 .append("\n");
 		
 		return truckinfo.toString();
 	}
