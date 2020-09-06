@@ -41,7 +41,7 @@ public class FoodTruckIgnition {
 
 		FoodTruck[] returnArray = tempArray;
 
-		System.out.println("Welcome to Quick Byte! Please enter Food Truck info:\n");
+		System.out.println("Welcome to Quick Byte! \n\nPlease enter Food Truck info:\n");
 
 		for (int i = 0; i < truckMax; i++) {
 
@@ -53,7 +53,7 @@ public class FoodTruckIgnition {
 			System.out.print("Truck No. " + (i + 1) + " Food Type(s): ");
 			tempArray[i].setFoodType(input.nextLine());
 			System.out.print("Truck No. " + (i + 1) + " Rating: ");
-			tempArray[i].setTruckRating(input.nextInt());
+			tempArray[i].setTruckRating(input.nextDouble());
 			input.nextLine();
 		}
 
@@ -156,7 +156,7 @@ public class FoodTruckIgnition {
 			System.out.println("\nNo Trucks in Database!");
 		} else {
 
-			int ratingTotal = 0;
+			double ratingTotal = 0;
 			double truckAverage = 0;
 
 			for (int i = 0; i < truckArray.length; i++) {
@@ -166,7 +166,7 @@ public class FoodTruckIgnition {
 					ratingTotal += truckArray[i].getTruckRating();
 				}
 			}
-			truckAverage = ((double) ratingTotal / numberOfTrucks);
+			truckAverage = ratingTotal / numberOfTrucks;
 			System.out.println("\nThe average rating of the food trucks is: " + truckAverage);
 		}
 
@@ -174,7 +174,7 @@ public class FoodTruckIgnition {
 
 	public void highestTruck(FoodTruck[] truckArray, int numberOfTrucks) {
 
-		int highestNumber = -1;
+		double highestNumber = -10000000;
 		String highestRated = null;
 		if (numberOfTrucks == 0) {
 			System.out.println("\nNo Trucks in Database!");

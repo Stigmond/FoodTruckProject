@@ -5,7 +5,7 @@ public class FoodTruck {
 	private static int ID_COUNTER = 100;
 	private String truckName;
 	private String foodType;
-	private int truckRating;
+	private double truckRating;
 	private int truckId;
 
 	FoodTruck() {
@@ -13,7 +13,7 @@ public class FoodTruck {
 		ID_COUNTER++;
 	}
 
-	FoodTruck(String truckName, String foodType, int truckRating) {
+	FoodTruck(String truckName, String foodType, double truckRating) {
 
 		this.truckName = truckName;
 		this.foodType = foodType;
@@ -55,11 +55,11 @@ public class FoodTruck {
 		this.foodType = foodType;
 	}
 
-	public int getTruckRating() {
+	public double getTruckRating() {
 		return this.truckRating;
 	}
 
-	public void setTruckRating(int truckRating) {
+	public void setTruckRating(double truckRating) {
 		this.truckRating = truckRating;
 	}
 
