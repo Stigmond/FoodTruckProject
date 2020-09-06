@@ -22,7 +22,8 @@ public class FoodTruckIgnition {
 		// Fill data of the default Food Trucks
 		foodTruckArray = makeFoodTrucks(foodTruckArray, truckMax);
 		// Pass foodTruck Array to menu to be further passed to other methods.
-		menu(foodTruckArray);
+		int numberOfTrucks = countTrucks(foodTruckArray);
+		menu(foodTruckArray, numberOfTrucks);
 
 		input.close();
 	}
@@ -61,7 +62,21 @@ public class FoodTruckIgnition {
 
 	}
 
-	public void menu(FoodTruck[] truckArray) {
+	public int countTrucks(FoodTruck[] foodTruckArray) {
+
+		int numberOfTrucks = 0;
+
+		for (FoodTruck foodTruck : foodTruckArray) {
+			if ((foodTruck.getTruckName() == null) || ((foodTruck.getTruckName().equals("quit")))) {
+				continue;
+			} else {
+				numberOfTrucks++;
+			}
+		}
+		return numberOfTrucks;
+	}
+
+	public void menu(FoodTruck[] truckArray, int numberOfTrucks) {
 
 		boolean keepGoing = true;
 		do {
@@ -71,19 +86,28 @@ public class FoodTruckIgnition {
 
 			switch (userChoice) {
 
-			case "1": case "one": case "list":
-				listTrucks(truckArray);
+			case "1":
+			case "one":
+			case "list":
+				listTrucks(truckArray, numberOfTrucks);
 				break;
 
-			case "2": case "two": case "average":
-				truckAverage(truckArray);
+			case "2":
+			case "two":
+			case "average":
+				truckAverage(truckArray, numberOfTrucks);
 				break;
 
-			case "3": case "three": case "best":
-				highestTruck(truckArray);
+			case "3":
+			case "three":
+			case "best":
+				highestTruck(truckArray, numberOfTrucks);
 				break;
 
-			case "4": case "four": case "quit":	case "exit":
+			case "4":
+			case "four":
+			case "quit":
+			case "exit":
 				System.out.println("\nGoodbye! Happy Eating!");
 				keepGoing = false;
 				break;
@@ -111,18 +135,8 @@ public class FoodTruckIgnition {
 		System.out.println("*************************************");
 	}
 
-	public void listTrucks(FoodTruck[] truckArray) {
+	public void listTrucks(FoodTruck[] truckArray, int numberOfTrucks) {
 		System.out.println("");
-
-		int numberOfTrucks = 0;
-
-		for (FoodTruck foodTruck : truckArray) {
-			if ((foodTruck.getTruckName() == null) || ((foodTruck.getTruckName().equals("quit")))) {
-				continue;
-			} else {
-				numberOfTrucks++;
-			}
-		}
 
 		if (numberOfTrucks == 0) {
 			System.out.println("No Trucks in Database!");
@@ -137,53 +151,46 @@ public class FoodTruckIgnition {
 		}
 	}
 
-	public void truckAverage(FoodTruck[] truckArray) {
-
-		int ratingTotal = 0;
-		int numberOfTrucks = 0;
-		double truckAverage = 0;
-
-		for (FoodTruck foodTruck : truckArray) {
-			if ((foodTruck.getTruckName() == null) || ((foodTruck.getTruckName().equals("quit")))) {
-				continue;
-			} else {
-				numberOfTrucks++;
-			}
-		}
-
-		for (int i = 0; i < truckArray.length; i++) {
-			if ((truckArray[i].getTruckName() == null) || ((truckArray[i].getTruckName().equals("quit")))) {
-				continue;
-			} else {
-				ratingTotal += truckArray[i].getTruckRating();
-			}
-		}
+	public void truckAverage(FoodTruck[] truckArray, int numberOfTrucks) {
 
 		if (numberOfTrucks == 0) {
 			System.out.println("\nNo Trucks in Database!");
 		} else {
-			truckAverage = ((double)ratingTotal / numberOfTrucks);
+
+			int ratingTotal = 0;
+			double truckAverage = 0;
+
+			for (int i = 0; i < truckArray.length; i++) {
+				if ((truckArray[i].getTruckName() == null) || ((truckArray[i].getTruckName().equals("quit")))) {
+					continue;
+				} else {
+					ratingTotal += truckArray[i].getTruckRating();
+				}
+			}
+			truckAverage = ((double) ratingTotal / numberOfTrucks);
 			System.out.println("\nThe average rating of the food trucks is: " + truckAverage);
 		}
 
 	}
 
-	public void highestTruck(FoodTruck[] truckArray) {
+	public void highestTruck(FoodTruck[] truckArray, int numberOfTrucks) {
 
 		int highestNumber = 0;
 		String highestRated = null;
-		for (FoodTruck foodTruck : truckArray) {
-			if (foodTruck.getTruckRating() > highestNumber) {
-				highestNumber = foodTruck.getTruckRating();
-				highestRated = foodTruck.toString();
-			}
-		}
-
-		if (highestNumber == 0) {
+		if (numberOfTrucks == 0) {
 			System.out.println("\nNo Trucks in Database!");
 		} else {
+
+			for (FoodTruck foodTruck : truckArray) {
+				if (foodTruck.getTruckRating() > highestNumber) {
+					highestNumber = foodTruck.getTruckRating();
+					highestRated = foodTruck.toString();
+				}
+			}
 			System.out.println("\nHighest rated -- " + highestRated);
 		}
+
+		
 	}
 
 }
