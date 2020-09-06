@@ -2,7 +2,7 @@
 
 ### Overview
 
-This is a Java Program which has user create a Food Truck database, and allows user to perform the following:
+This is the Week 2 assignment for the Skill Distillery Java Bootcamp.  This Java Program has the user create a Food Truck database, then allows the user to perform the following functions:
 
 * Review itemized Food Truck data, including Name, ID Number, Food Served, and Rating;
 
