@@ -23,8 +23,7 @@ This is a Java Program which has user create a Food Truck database, and allows u
 
 ### Java Topics Covered / Utilized
 * Arrays (Primitive Data and Object)
-* For Loops
-* Break/Continue
+* For Loops (w/ Break/Continue)
 * Packages
 * Object Creation
 * StringBuilder
