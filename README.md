@@ -4,7 +4,7 @@
 
 This is a Java Program which has user create a Food Truck database, and allows user to perform the following:
 
-* Review the list of Food Truck data, including Name, ID Number, Food Served, and Rating;
+* Review itemized Food Truck data, including Name, ID Number, Food Served, and Rating;
 
 * Review the average Rating of the Food Trucks entered into the database;
 
@@ -32,8 +32,8 @@ This is a Java Program which has user create a Food Truck database, and allows u
 * Encapsulation (e.g. Getters and Setters);
 * toString() Method;
 
-### Lessons Learned
+### Lesson(s) Learned
 
-* This project presented an opportunity to better understand scope of variables and methods, and the necessary mechanisms to call them into other classes and methods.
-* This project presented an opportunity to better understand how to compartmentalize functions into separate methods, to allow for better readability and logic flow.
- 
+* This project provided an opportunity to understand the the function of an Object, the necessary parts of an Object, and creation and utilization of an Object.
+* This project presented an opportunity to better understand scope of variables and methods, and the necessary mechanisms to call them to/from other classes and methods.
+* This project presented an opportunity to better understand how to compartmentalize functions into separate methods, to allow for better readability and logic flow, and to reduce redundancy.
